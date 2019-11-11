@@ -22,18 +22,7 @@ public class MainWindow {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MainWindow window = new MainWindow();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the application.
@@ -41,23 +30,32 @@ public class MainWindow {
 	public MainWindow() {
 		initialize();
 	}
-
+	public Menu menu;
+	public Grid grid;
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setResizable(false);
-		frame.setBounds(100, 100, 607, 732);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		setFrame(new JFrame());
+		getFrame().setResizable(false);
+		getFrame().setBounds(100, 100, 607, 732);
+		getFrame().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getFrame().getContentPane().setLayout(null);
 		
-		Menu menu = new Menu();
+		menu = new Menu();
 		
-		frame.getContentPane().add(menu);
+		getFrame().getContentPane().add(menu);
 		
-		Grid grid = new Grid();
+		grid = new Grid();
 		
-		frame.getContentPane().add(grid);
+		getFrame().getContentPane().add(grid);
+	}
+
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
 	}
 }

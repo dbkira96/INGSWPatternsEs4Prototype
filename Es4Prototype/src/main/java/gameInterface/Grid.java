@@ -26,7 +26,8 @@ public class Grid extends JPanel {
 
 			@Override
 			public void mousePressed(MouseEvent e) {
-				Building ts = GameManager.getInstance().getToInsert();
+				GameManager gm = GameManager.getInstance();
+				Building ts = gm.dp.Clone(gm.toInsert);
 				if(ts!=null) {
 					JLabel lbl = new JLabel();
 					lbl.setIcon(new ImageIcon(ts.getImage()));
